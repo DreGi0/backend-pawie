@@ -7,7 +7,7 @@ async function bootstrap() {
     origin: [
       'http://localhost:3000',
       'http://localhost:3001',
-      'https://frontend-pawie.vercel.app',
+      /^https:\/\/frontend-pawie.*\.vercel\.app$/,
       'https://pawieapp.com',
       'https://www.pawieapp.com',
     ],
