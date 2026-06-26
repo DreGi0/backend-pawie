@@ -1,5 +1,6 @@
 import { Controller, Post, Get, Body, HttpCode, HttpStatus } from '@nestjs/common';
 import { WaitlistService } from './waitlist.service';
+import { CreateWaitlistDto } from './waitlist.dto';
 
 @Controller('waitlist')
 export class WaitlistController {
@@ -7,8 +8,8 @@ export class WaitlistController {
 
     @Post()
     @HttpCode(HttpStatus.OK)
-    async addToWaitlist(@Body('email') email: string) {
-        await this.waitlistService.addEmail(email);
+    async addToWaitlist(@Body() dto: CreateWaitlistDto) {
+        await this.waitlistService.addEmail(dto.email);
         return { success: true };
     }
 
